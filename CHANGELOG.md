@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/entrostat/get-next-project-version/compare/v1.0.0...v1.0.1) (2021-03-20)
+
+
+### Bug Fixes
+
+* **version:** Ignore the tag version, rather use the output of the package.json file version bump ([61b1468](https://github.com/entrostat/get-next-project-version/commit/61b1468ae8b444f04cf6044e3e80001cf72c688a))
+
 ## 1.0.0 (2021-03-20)
 
 

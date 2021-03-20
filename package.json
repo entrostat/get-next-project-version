@@ -1,7 +1,7 @@
 {
   "name": "@entrostat/get-next-project-version",
   "description": "Runs a dry run on standard-version and returns what the next version would be if you were to run it.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Kerren @Kerren-Entrostat",
   "bin": {
     "get-next-project-version": "./bin/run"
