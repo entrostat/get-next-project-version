@@ -19,7 +19,7 @@ $ npm install -g @entrostat/get-next-project-version
 $ get-next-project-version COMMAND
 running command...
 $ get-next-project-version (-v|--version|version)
-@entrostat/get-next-project-version/1.0.0 linux-x64 node-v14.15.0
+@entrostat/get-next-project-version/1.0.1 linux-x64 node-v14.15.0
 $ get-next-project-version --help [COMMAND]
 USAGE
   $ get-next-project-version COMMAND
