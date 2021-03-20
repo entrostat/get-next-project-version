@@ -4,7 +4,12 @@ import { exec } from 'child_process';
 class GetNextProjectVersion extends Command {
     static description = 'Runs a dry run on standard-version and looks at what the next version would be.';
 
-    static flags = {};
+    static flags = {
+        'no-version-prefix': flags.boolean({
+            char: 'n',
+            description: 'Whether to leave out the "v" in front of the package.json version.',
+        }),
+    };
 
     static args = [];
 
@@ -24,7 +29,7 @@ class GetNextProjectVersion extends Command {
         const matches = regex.exec(dryRunResult);
 
         if (matches) {
-            this.log(matches[1]);
+            this.log(`${flags['no-version-prefix'] ? '' : 'v'}${matches[1]}`);
         } else {
             this.exit(1);
         }
