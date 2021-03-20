@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/entrostat/get-next-project-version/compare/v1.0.1...v1.1.0) (2021-03-20)
+
+
+### Features
+
+* **version:** Added the ability to add or remove the version prefix ([2329baf](https://github.com/entrostat/get-next-project-version/commit/2329baff77f946440a14bf7ca9636c1a389e99a6))
+
 ### [1.0.1](https://github.com/entrostat/get-next-project-version/compare/v1.0.0...v1.0.1) (2021-03-20)
 
 
