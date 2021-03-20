@@ -1,29 +1,34 @@
-import {Command, flags} from '@oclif/command'
+import { Command, flags } from '@oclif/command';
+import { exec } from 'child_process';
 
-class EntrostatGetNextProjectVersion extends Command {
-  static description = 'describe the command here'
+class GetNextProjectVersion extends Command {
+    static description = 'Runs a dry run on standard-version and looks at what the next version would be.';
 
-  static flags = {
-    // add --version flag to show CLI version
-    version: flags.version({char: 'v'}),
-    help: flags.help({char: 'h'}),
-    // flag with a value (-n, --name=VALUE)
-    name: flags.string({char: 'n', description: 'name to print'}),
-    // flag with no value (-f, --force)
-    force: flags.boolean({char: 'f'}),
-  }
+    static flags = {};
 
-  static args = [{name: 'file'}]
+    static args = [];
 
-  async run() {
-    const {args, flags} = this.parse(EntrostatGetNextProjectVersion)
+    async run() {
+        const { args, flags } = this.parse(GetNextProjectVersion);
 
-    const name = flags.name ?? 'world'
-    this.log(`hello ${name} from ./src/index.ts`)
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`)
+        const dryRunResult: string = await new Promise((resolve, reject) => {
+            exec('npx standard-version --dry-run', (error, stdout, stderr) => {
+                if (error) {
+                    return reject(stderr);
+                }
+                return resolve(stdout);
+            });
+        });
+
+        const regex = /tagging release (v\d+\.\d+\.\d+)/gim;
+        const matches = regex.exec(dryRunResult);
+
+        if (matches) {
+            this.log(matches[1]);
+        } else {
+            this.exit(1);
+        }
     }
-  }
 }
 
-export = EntrostatGetNextProjectVersion
+export = GetNextProjectVersion;
