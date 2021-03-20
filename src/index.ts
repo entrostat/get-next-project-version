@@ -20,7 +20,7 @@ class GetNextProjectVersion extends Command {
             });
         });
 
-        const regex = /tagging release (v\d+\.\d+\.\d+)/gim;
+        const regex = /bumping version in package.json from \d+\.\d+\.\d+ to (\d+\.\d+\.\d+)/gim;
         const matches = regex.exec(dryRunResult);
 
         if (matches) {
